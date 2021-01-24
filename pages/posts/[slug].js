@@ -29,7 +29,9 @@ export default function SinglePost({ post }) {
   )
 }
 export async function getStaticProps({ params }) {
-  const data = await fetchEntryBySlug(params.slug)
+  const content_type = 'post'
+  const fields = params.slug
+  const data = await fetchEntryBySlug(content_type, fields)
 
   return {
     props: {

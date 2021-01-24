@@ -35,7 +35,8 @@ function HomePage({ posts }: Props) {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  let allPosts = await fetchEntries()
+  let post: string;
+  let allPosts = await fetchEntries(post)
 
   return {
     props: {

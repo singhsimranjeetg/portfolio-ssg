@@ -4,18 +4,18 @@ const client = require('contentful').createClient({
 })
 
 
-export async function fetchEntries() {
+export async function fetchEntries(content_type) {
   const entries = await client.getEntries({
-    'content_type': 'post'
+    'content_type': `${content_type}`
   })
   if (entries.items) return entries.items
   console.log(`Error getting Entries for ${contentType.name}.`)
 }
 
-export async function fetchEntryBySlug(slug) {
+export async function fetchEntryBySlug( content_type, slug) {
   const entry = await client.getEntries({
-    'fields.slug': `${slug}`,
-    'content_type': 'post'
+    'content_type': `${content_type}`,
+    'fields.slug': `${slug}` 
   })
   console.log(entry.items)
   if (entry.items) return entry.items
